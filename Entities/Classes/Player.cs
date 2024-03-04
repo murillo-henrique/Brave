@@ -11,7 +11,11 @@ abstract class Player
     public List<Item> Inventory { get; set; } = new List<Item>();
     public List<Item> Equipped { get; set; } = new List<Item>();
 
-    public Player(string name, double damage, double health, double stamina)
+    public Player(string name)
+    {
+        Name = name;
+    }
+    public Player(string name, double damage, double health, double stamina) // Prolly a constructor for npcs, idk.
     {
         Name = name;
         Damage = damage;
@@ -21,7 +25,16 @@ abstract class Player
 
     public abstract void Attack();
     public abstract void Dodge();
-    public abstract void EquipItem();
-    public abstract void UnequipedItem();
-    public abstract void Loot();
+    public void EquipItem()
+    {
+
+    }
+    public void UnequipedItem()
+    {
+
+    }
+    public void Loot()
+    {
+
+    }
 }

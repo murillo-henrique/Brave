@@ -12,3 +12,4 @@ C:\Brave\obj\Debug\net8.0\refint\Brave.dll
 C:\Brave\obj\Debug\net8.0\Brave.pdb
 C:\Brave\obj\Debug\net8.0\Brave.genruntimeconfig.cache
 C:\Brave\obj\Debug\net8.0\ref\Brave.dll
+C:\Brave\obj\Debug\net8.0\Brave.sourcelink.json
