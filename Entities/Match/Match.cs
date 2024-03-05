@@ -22,17 +22,31 @@ class Match
     public void MakePlay()
     {
         _isEnded();
-        if (PlayerTurn)
-        {
-            char playerChoice;
-
-            Screen.DisplayMatch(this);
-            playerChoice = char.Parse(Console.ReadLine().ToLower());
-            _handleChoice(playerChoice);
-            System.Console.WriteLine("Player attacked");
-        }
+        _playerTurn();
     }
 
+
+    private void _botTurn()
+    {
+        Random random = new Random();
+        char[] availableBotChoices = {'A'};
+        int selectedChoice = random.Next(0, availableBotChoices.Length);
+
+        System.Console.WriteLine($"Bot choice: {availableBotChoices[selectedChoice]}");
+        Ended = true;
+    }
+    private void _playerTurn()
+    {
+        if (!PlayerTurn) { _botTurn(); return; }
+
+        char playerChoice;
+
+        Screen.DisplayMatch(this);
+        playerChoice = char.Parse(Console.ReadLine().ToLower());
+        _handleChoice(playerChoice);
+        System.Console.WriteLine("Player attacked");
+        PlayerTurn = false;
+    }
     private void _handleChoice(char choice)
     {
         switch (choice)
