@@ -5,27 +5,28 @@ namespace Brave.Entities.Classes;
 class Warrior : Player
 {
     private double _baseHealth = 110;
-    private double _baseDamage = 25;
+    private double _baseDamage = 5; // Player starts without weapon
     private double _baseStamina = 100;
+    private Item _initialWeapon = new BasicSword();
 
     public Warrior(string name) : base(name)
     {
-        Health = _baseHealth;
+        MaxHealth = _baseHealth;
+        MaxStamina = _baseStamina;
+
+        Health = MaxHealth;
+        Stamina = MaxStamina;
         Damage = _baseDamage;
-        Stamina = _baseStamina;
+        Inventory.Add(_initialWeapon);
+        EquipItem(_initialWeapon.Name);
     }
 
-    public override void Attack()
+    public override void Attack(Player target)
     {
-
+        target.Health -= Damage;
     }
     public override void Dodge()
     {
 
-    }
-
-    public override string ToString()
-    {
-        return $"{Name}, {Health}, {Damage}, {Stamina}";
     }
 }
