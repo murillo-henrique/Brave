@@ -38,16 +38,17 @@ class Screen
     {
         if (!match.PlayerTurn) { return; };
 
-        string[] options = { "[A]: Attack", "[D]: Dodge", "[C]: Consumable" };
+        string[] options = { "[A]: Attack", "[D]: Dodge", "[C]: Consumable", "Your Choice!: " };
         System.Console.WriteLine();
         foreach (var phrase in options)
         {
+            System.Console.WriteLine();
             foreach (var letter in phrase)
             {
                 Console.Write(letter);
                 Thread.Sleep(50);
             }
-            System.Console.WriteLine();
+
         }
     }
 }
